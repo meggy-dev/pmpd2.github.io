@@ -1,204 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- this is terrible and held together with hopes and dreams. at least it works perfectly -->
     <!-- remove these comments if you want. i just like venting -->
     <!-- - amy -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mobile - dashboard</title>
-    <link rel="stylesheet" href="stylemobile.css">
+    <link rel="stylesheet" href="stylemobile.css" />
     <style>
-        html, body {
-            background-color: #e2a9f1;
-            text-align: center;
-            margin: 0; padding: 0; height: 100%
+      html,
+      body {
+        background-color: #e2a9f1;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      header > img {
+        position: absolute;
+        top: 3%; /* this is terrible but you know what? it works */
+        width: 2em;
+        height: 2em;
+        cursor: pointer;
+        #menu {
+          left: 8%;
         }
-        header > img {
-            position: absolute;
-            top: 3%; /* this is terrible but you know what? it works */
-            width: 2em; height: 2em;
-            cursor: pointer;
+        #user {
+          right: 8%;
         }
-        header > #menu { left: 8%; }
-        header > #user { right: 8%; }
-        #tasklistkey {
-            display: flex;
-            justify-content: center;
-            .circle { margin-left: 10px; }
-            #name { margin-right: 30%; }
-            .circle, #name { font-weight: bold; }
+      }
+
+      #tasklistkey {
+        display: flex;
+        justify-content: center;
+        .circle {
+          margin-left: 10px;
         }
-        #tasklist {
-            background-color: white;
-            border-radius: 16px;
-            width: 85%; margin: auto;
-            padding: 1em;
-            max-height: 68%;
-            overflow: scroll;
-            #overview {
-                width: 100%;
-                border-color: #8598fa;
-                border-style: solid;
-                border-width: .5em;
-                background-color: #c2ccfe;
-                border-radius: 1em;
-                border-spacing: 0;
-                td { 
-                    width: 33%;
-                    border-left: solid .3em #8598fa;
-                    border-right: solid .3em #8598fa;
-                }
-            }
+        #name {
+          margin-right: 30%;
         }
-        .task {
-            text-align: left;
-            border-radius: 1em;
-            background-color: #c2ccfe;
-            display: flex; align-items: center;
-            margin-bottom: 1em; /* i don't know anymore */
-            #name { font-weight: bold; }
-            .checkbox {
-                cursor: pointer;
-                background-color: #8598fa;
-                color: white;
-                border-radius: .5em;
-                width: 3em; height: 3em;
-                display: flex;
-                justify-content: center; align-items: center;
-                margin: 2%;
-            }
-            #info {
-                display: flex;
-                flex-direction: column;
-                flex-wrap: nowrap;
-                * { margin: 0; }
-            }
+        .circle,
+        #name {
+          font-weight: bold;
         }
-        footer {
-            position: absolute;
-            bottom: 1%;
-            left: 1%;
-            width: 100%;
-            button {
-                font-weight: bold;
-                background-color: #cd627c; color: white;
-                border: none; border-radius: 4em;
-                padding: 2em; margin: 0.5em;
-                cursor: pointer;
-            }
+      }
+
+      #tasklist {
+        background-color: white;
+        border-radius: 16px;
+        width: 85%;
+        margin: auto;
+        padding: 1em;
+        max-height: 68%;
+        overflow: scroll;
+      }
+      #tasklist > #overview {
+        width: 100%;
+        border-color: #8598fa;
+        border-style: solid;
+        border-width: 0.5em;
+        background-color: #c2ccfe;
+        border-radius: 1em;
+        border-spacing: 0;
+      }
+      #tasklist > #overview > td {
+        width: 33%;
+        border-left: solid 0.3em #8598fa;
+        border-right: solid 0.3em #8598fa;
+      }
+      .task {
+        text-align: left;
+        border-radius: 1em;
+        background-color: #c2ccfe;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1em; /* i don't know anymore */
+        #name {
+          font-weight: bold;
         }
+      }
+      .task > .checkbox {
+        cursor: pointer;
+        background-color: #8598fa;
+        color: white;
+        border-radius: 0.5em;
+        width: 3em;
+        height: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2%;
+      }
+      .task > #info {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        * {
+          margin: 0;
+        }
+      }
+
+      footer {
+        position: absolute;
+        bottom: 1%;
+        left: 1%;
+        width: 100%;
+      }
+      footer > button {
+        font-weight: bold;
+        background-color: #cd627c;
+        color: white;
+        border: none;
+        border-radius: 4em;
+        padding: 2em;
+        margin: 0.5em;
+        cursor: pointer;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Dashboard</h1>
-        <img src="ref/menu.png" id="menu" onclick="window.location = '/mobilessettings.html'">
-        <img src="ref/user.png" id="user" onclick="window.location = '/mobilessettings.html'">
+      <h1>Dashboard</h1>
+      <img
+        src="ref/menu.png"
+        id="menu"
+        onclick="window.location = '/mobilessettings.html'"
+      />
+      <img
+        src="ref/user.png"
+        id="user"
+        onclick="window.location = '/mobilessettings.html'"
+      />
     </header>
     <div id="tasklistkey">
-        <p id="name">Task list</p>
-        <p>Difficulty</p>
-        <p style="color: #78b159;" class="circle">●</p>
-        <p style="color: #fdcb58;" class="circle">●</p>
-        <p style="color: #dd2e44;" class="circle">●</p>
+      <p id="name">Task list</p>
+      <p>Difficulty</p>
+      <p style="color: #78b159" class="circle">●</p>
+      <p style="color: #fdcb58" class="circle">●</p>
+      <p style="color: #dd2e44" class="circle">●</p>
     </div>
     <div id="tasklist">
-        <!-- i love tables -->
-        <table id="overview">
-            <tr>
-                <td>Tasks due</td>
-                <td>Overdue</td>
-                <td>Week</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-        </table>
-        <br> <!-- never use br. i am because i am a certified idiot -->
-        <div class="task">
-            <div class="checkbox"><p></p></div>
-            <div id="info">
-                <p id="name">Task 1 - English Homework</p>
-                <p id="misc">Tues 20 / High</p>
-            </div>
+      <!-- i love tables -->
+      <table id="overview">
+        <tr>
+          <td>Tasks due</td>
+          <td>Overdue</td>
+          <td>Week</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+      </table>
+      <br />
+      <!-- never use br. i am because i am a certified idiot -->
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">Tues 20 / High</p>
         </div>
-        <div class="task">
-            <div class="checkbox"><p></p></div>
-            <div id="info">
-                <p id="name">Task 1 - English Homework</p>
-                <p id="misc">Tues 20 / High</p>
-            </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">Tues 20 / High</p>
         </div>
-        <div class="task">
-            <div class="checkbox"><p></p></div>
-            <div id="info">
-                <p id="name">Task 1 - English Homework</p>
-                <p id="misc">Tues 20 / High</p>
-            </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">Tues 20 / High</p>
         </div>
-        <div class="task">
-            <div class="checkbox"><p></p></div>
-            <div id="info">
-                <p id="name">Task 1 - English Homework</p>
-                <p id="misc">Tues 20 / High</p>
-            </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">Tues 20 / High</p>
         </div>
-        <div class="task">
-            <div class="checkbox"><p></p></div>
-            <div id="info">
-                <p id="name">Task 1 - English Homework</p>
-                <p id="misc">Tues 20 / High</p>
-            </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">Tues 20 / High</p>
         </div>
-        <div class="task">
-            <div class="checkbox"><p></p></div>
-            <div id="info">
-                <p id="name">Task 1 - English Homework</p>
-                <p id="misc">Tues 20 / High</p>
-            </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">Tues 20 / High</p>
         </div>
-        <div class="task">
-            <div class="checkbox"><p></p></div>
-            <div id="info">
-                <p id="name">Task 1 - English Homework</p>
-                <p id="misc">Tues 20 / High</p>
-            </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">Tues 20 / High</p>
         </div>
-        <div class="task">
-            <div class="checkbox"><p></p></div>
-            <div id="info">
-                <p id="name">Task 1 - English Homework</p>
-                <p id="misc">Tues 20 / High</p>
-            </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">Tues 20 / High</p>
         </div>
-        <div class="task">
-            <div class="checkbox"><p></p></div>
-            <div id="info">
-                <p id="name">Task 1 - English Homework</p>
-                <p id="misc">Tues 20 / High</p>
-            </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">Tues 20 / High</p>
         </div>
+      </div>
     </div>
     <footer>
-        <button onclick="window.location = '/mobile-calendar.html'">Calendar</button><button style="width: 60%">Add task</button>
+      <button onclick="window.location = '/mobile-calendar.html'">
+        Calendar</button
+      ><button style="width: 60%">Add task</button>
     </footer>
-</body>
-<script>
+  </body>
+  <script>
     // styling a form checkbox requires so much css, making my own by adding js to a div seems easier
-    checkboxes = document.getElementsByClassName("checkbox")
+    checkboxes = document.getElementsByClassName("checkbox");
     for (i = 0; i < checkboxes.length; i++) {
-        checkboxes[i].addEventListener("click", function() {
-            if (this.clicked != "yes") {
-                this.clicked = "yes";
-                this.children[0].innerText = "✓" // crimes against web dev shall be comitten
-            } else {
-                this.clicked = "no";
-                this.children[0].innerText = ""
-            }
-        })
+      checkboxes[i].addEventListener("click", function () {
+        if (this.clicked != "yes") {
+          this.clicked = "yes";
+          this.children[0].innerText = "✓"; // crimes against web dev shall be comitten
+        } else {
+          this.clicked = "no";
+          this.children[0].innerText = "";
+        }
+      });
     }
-</script>
+  </script>
 </html>
