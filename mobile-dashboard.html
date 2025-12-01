@@ -14,12 +14,9 @@
         #tasklistkey {
             display: flex;
             justify-content: center;
-            .circle {
-                height: 20px;
-                width: 20px;
-                background-color: #8598fa;
-                border-radius: 50%;
-            }
+            .circle { margin-left: 10px; }
+            #name { margin-right: 30%; }
+            .circle, #name { font-weight: bold; }
         }
         #tasklist {
             background-color: white;
@@ -88,9 +85,9 @@
     <div id="tasklistkey">
         <p id="name">Task list</p>
         <p>Difficulty</p>
-        <div class="circle" style="background-color: #78b159"></div>
-        <div class="circle" style="background-color: #fdcb58;"></div>
-        <div class="circle" style="background-color: #dd2e44;"></div>
+        <p style="color: #78b159;" class="circle">●</p>
+        <p style="color: #fdcb58;" class="circle">●</p>
+        <p style="color: #dd2e44;" class="circle">●</p>
     </div>
     <div id="tasklist">
         <!-- i used tables in the canva mockup and they worked well, why not here -->
