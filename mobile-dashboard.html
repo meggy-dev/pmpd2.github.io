@@ -14,8 +14,23 @@
         #tasklist {
             background-color: white;
             border-radius: 16px;
-            width: 95%;
+            width: 90%;
+            padding: 2%;
             /* how do i center it augbgbgb */
+            #overview {
+                width: 100%;
+                border-color: #8598fa;
+                border-style: solid;
+                border-width: .5em;
+                background-color: #c2ccfe;
+                border-radius: 1em;
+                border-spacing: 0;
+                td { 
+                    width: 33%;
+                    border-left: solid .25em #8598fa;
+                    border-right: solid .25em #8598fa;
+                }
+            }
         }
         footer {
             position: absolute;
@@ -36,12 +51,19 @@
         <h1>Dashboard</h1>
     </header>
     <div id="tasklist">
-        <!-- note to self: work on this after everything else - amy -->
-        <div id="overview">
-            <p>Tasks due</p>
-            <p>Overdue</p>
-            <p>Week</p>
-        </div>
+        <!-- i used tables in the canva mockup and they worked well, why not here -->
+        <table id="overview">
+            <tr>
+                <td>Tasks due</td>
+                <td>Overdue</td>
+                <td>Week</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </table>
     </div>
     <footer>
         <button onclick="window.location = '/mobile-calendar.html'">Calendar</button><button style="width: 60%">Add task</button>
