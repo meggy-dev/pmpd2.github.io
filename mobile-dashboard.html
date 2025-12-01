@@ -41,6 +41,22 @@
                 }
             }
         }
+        .task {
+            text-align: left;
+            border-radius: 1em;
+            background-color: #c2ccfe;
+            #name {font-weight: bold;}
+            .checkbox {
+                text-align: center;
+                cursor: pointer;
+                background-color: #8598fa;
+                color: white;
+                border-radius: .5em;
+                width: 10%;
+                height: 10%;
+                display: grid;
+            }
+        }
         footer {
             position: absolute;
             bottom: 1%;
@@ -81,9 +97,29 @@
                 <td>3</td>
             </tr>
         </table>
+        <div class="task">
+            <span class="checkbox">X</span>
+            <p id="name">Task 1 - English Homework</p>
+            <div id="info"><p>Tues 20</p><p>High</p></div>
+        </div>
     </div>
     <footer>
         <button onclick="window.location = '/mobile-calendar.html'">Calendar</button><button style="width: 60%">Add task</button>
     </footer>
 </body>
+<script>
+    // styling a form checkbox requires so much css, making my own seems easier
+    checkboxes = document.getElementsByClassName("checkbox")
+    for (i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener("click", function() {
+            if (this.clicked != "yes") {
+                this.clicked = "yes";
+                this.innerText = "✓"
+            } else {
+                this.clicked = "no";
+                this.innerText = "X" // crimes against web dev shall be comitten
+            }
+        })
+    }
+</script>
 </html>
