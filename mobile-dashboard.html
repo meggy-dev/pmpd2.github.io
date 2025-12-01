@@ -9,7 +9,16 @@
         html, body {
             background-color: #e2a9f1;
             text-align: center;
+        }
+        #tasklistkey {
+            display: flex;
             justify-content: center;
+            .circle {
+                height: 20px;
+                width: 20px;
+                background-color: #8598fa;
+                border-radius: 50%;
+            }
         }
         #tasklist {
             background-color: white;
@@ -38,6 +47,7 @@
             left: 1%;
             width: 100%;
             button {
+                font-weight: bold;
                 background-color: #cd627c; color: white;
                 border: none; border-radius: 4em;
                 padding: 2em; margin: 0.5em;
@@ -50,6 +60,13 @@
     <header>
         <h1>Dashboard</h1>
     </header>
+    <div id="tasklistkey">
+        <p id="name">Task list</p>
+        <p>Difficulty</p>
+        <div class="circle" style="background-color: #78b159"></div>
+        <div class="circle" style="background-color: #fdcb58;"></div>
+        <div class="circle" style="background-color: #dd2e44;"></div>
+    </div>
     <div id="tasklist">
         <!-- i used tables in the canva mockup and they worked well, why not here -->
         <table id="overview">
