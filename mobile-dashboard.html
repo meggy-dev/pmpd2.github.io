@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <!-- this is terrible and held together with hopes and dreams. at least it works perfectly -->
+    <!-- remove these comments if you want. i just like venting -->
+    <!-- - amy -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mobile - dashboard</title>
@@ -12,6 +14,14 @@
             text-align: center;
             margin: 0; padding: 0; height: 100%
         }
+        header > img {
+            position: absolute;
+            top: 3%; /* this is terrible but you know what? it works */
+            width: 2em; height: 2em;
+            cursor: pointer;
+        }
+        header > #menu { left: 8%; }
+        header > #user { right: 8%; }
         #tasklistkey {
             display: flex;
             justify-content: center;
@@ -24,7 +34,7 @@
             border-radius: 16px;
             width: 85%; margin: auto;
             padding: 1em;
-            max-height: 70%;
+            max-height: 68%;
             overflow: scroll;
             #overview {
                 width: 100%;
@@ -83,6 +93,8 @@
 <body>
     <header>
         <h1>Dashboard</h1>
+        <img src="ref/menu.png" id="menu" onclick="window.location = '/mobilessettings.html'">
+        <img src="ref/user.png" id="user" onclick="window.location = '/mobilessettings.html'">
     </header>
     <div id="tasklistkey">
         <p id="name">Task list</p>
