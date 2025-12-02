@@ -11,20 +11,48 @@
             background-color: #343d5e;
             color: white;
             font-size: 150%;
+            height: 100%; width: 100%;
         }
         #logo {
             font-size: 100%;
+            width: 80%;
             background-color: white;
             color: black;
-            display: inline-block;
             padding: .5em;
             border-radius: 8px;
+            left: 6%; /* terrible way of centering something */
+            position: absolute;
+            bottom: 1%;
         }
         img {
-            width: 100%
+            position: absolute;
+            top: 26%;
+            left: 2%;
+            width: 100%;
         }
-        .logo{
-            bottom: 0
+        form {
+            margin-top: 15%;
+            font-weight: bold;
+            [type=submit] {
+                font-size: 2em;
+                padding: 5%;
+                width: 50%;
+                border-style: none;
+                border-radius: .5em;
+                color: white; background-color: #077aba;
+                position: absolute;
+                bottom: 20%;
+                left: 25%;
+                font-weight: bold; /* ?? */
+            }
+            [type="text"] {
+                margin-bottom: 10%;
+                width: 80%;
+                padding: 2%;
+                border-radius: .5em;
+                background-color: #bbd1eb;
+                border-style: none;
+            }
         }
     </style>
 </head>
@@ -37,7 +65,7 @@
         <label for="passw">Password</label> <br>
         <input type="text" id="passw" name="passw"> <br>
         <img src="/ref/mobile logo.png" alt="Student Helper"> <br>
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" id="login">
     </form>
     
     <!-- placeholder -->
