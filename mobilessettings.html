@@ -1,95 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Settings</title>
-    <link rel="stylesheet" href="...">
-</head>
-<body>
+    <link rel="stylesheet" href="..."/>
+  </head>
+  <body>
     <style>
-        body{
-            background-color: #343d5e;
-            color: #fff;
-             
+      body {
+        background-color: #343d5e;
+        color: #fff;
+        font-family: sans-serif;
+      }
+      .header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: stretch;
+      }
+      .content {
+        color: black;
+        background-color: #fff;
+        border-radius: 2em;
+        padding: .8em;
+        height: 90%;
+        justify-content: center;
+      }
+      .contentObject {
+        background-color: #e2a9f1;
+        border-radius: 2em;
+        padding: 0.5em;
+        margin-bottom: 1em;
+        padding-left: 1em;
+        #contentHide {
+          float: right;
+          margin-right: 8%;
+          font-weight: bold;
         }
-        .header{
-            display: flex;
-	        flex-direction: row;
-	        flex-wrap: nowrap;
-	        justify-content: center;
-	        align-items: center;
-	        align-content: stretch;
-            }
-        .content{
-            color: black;
-            background-color: #fff;
-            border-radius: 15%;
-            padding: 3px;
-            height: 500px;
-            width: 96%;
-            display: flex;
-	        flex-direction: column;
-	        flex-wrap: nowrap;
-	        justify-content: flex-start;
-        	align-items: center;
-	        align-content: stretch;
-            
+        .contentSetting {
+          #setting { float: right; }
         }
-        .contentObject{
-            background-color: #e2a9f1;
-            border-radius: 25%;
-            width: 85%;
-            padding: 10px;
-        }
-        #id{
-            background-color: #8598fa;
-        }
-        #id button{
-            height: 10px;
-            padding: 2%;
-            font-size: 100%;
-        }
-        .buttonSection{
-            display: flex;
-	        flex-direction: row;
-	        flex-wrap: nowrap;
-	        justify-content: space-evenly;
-	        align-items: center;
-	        align-content: stretch;
-            
-        }
-        button{
-            background-color: #cd627c;
-            color: #fff;
-            font-size: 150%;
-            border: 0;
-            border-radius: 25%;
-            padding: 100%;
-        }
+      }
+      #id {
+        background-color: #8598fa;
+      }
+      #id > button {
+          height: 10px;
+          padding: 2%;
+          font-size: 100%;
+      }
+      .buttonSection {
+        position: absolute;
+        bottom: 1%;
+        width: 100%;
+      }
+      .buttonSection > button {
+        background-color: #cd627c;
+        color: #fff;
+        font-size: 150%;
+        border: 0;
+        border-radius: 3em;
+        padding: 1em;
+        margin: 0.5em;
+        width: 50%;
+      }
     </style>
     <div class="header">
-        <div class="headerObject"><h1><strong>Settings</strong></h1></div>
-        <div class="headerObject"><h1><strong><</strong></h1></div>
+      <div class="headerObject">
+        <h1><strong>Settings</strong></h1>
+      </div>
     </div>
     <div class="content">
-        <div class="contentObject" id="id">
-            <img src=".." alt="profile picture">
-            <div class="idDetails">Preferred Name:</div>
-            <div class="idDetails">Username:</div>
-            <div class="idDetails">Email:</div>
-            <button>Save</button>
+      <div class="contentObject" id="id">
+        <img src=".." alt="profile picture" />
+        <p class="idDetails">Preferred Name:</p>
+        <p class="idDetails">Username:</p>
+        <p class="idDetails">Email:</p>
+        <button>Save</button>
+      </div>
+      <div class="contentObject">
+        <span id="contentName">humburg</span>
+        <span id="contentHide">v</span>
+        <div id="contentContent">
+          <div class="contentSetting">
+            <p>a</p>
+            <p id="setting">b</p>
+          </div>
         </div>
-        <div class="contentObject">humburg</div>
-        <div class="contentObject">Time Zone</div>
-        <div class="contentObject">Appearance</div>
-        <div class="contentObject">Miscellaneous</div>
     </div>
-    
     <div class="buttonSection">
-        <div class="buttons"><a href="..."><button>Go Back</button></a></div>
-        <div class="buttons"><a href="..."><button>Save</button></a></div>
+      <button>Go Back</button>
+      <button style="width: 30%">Save</button>
     </div>
-    <script src="..."></script>
-</body>
-</html> 
+    <!-- <script src="..."></script> -->
+  </body>
+  <script>
+    for (dropdown of document.getElementsByClassName("contentObject")) {
+      dropdown.showing = true;
+      dropdown.addEventListener("click", function () {
+        for (let child of this.children) {
+          if (child.id == "contentContent") { content = child }
+          else if (child.id == "contentHide" ) { hide = child }
+        }
+        if (this.showing) {
+          this.showing = false;
+          hide.innerText = "<";
+          content.style.visibility = "hidden";
+          content.style.display = "none";
+        } else {
+          this.showing = true;
+          hide.innerText = "v";
+          content.style.visibility = "visible";
+          content.style.display = "block";
+        }
+      })
+    }
+  </script>
+</html>
