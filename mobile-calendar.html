@@ -1,33 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mobile - calendar</title>
     <style>
+      body {
+        background-color: #ced5fa;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
 
+      header {
+        background-color: #e2a9f1;
+        border-bottom-left-radius: 100%;
+        border-bottom-right-radius: 100%;
+        padding: 2%;
+        text-align: center;
+        margin: auto;
+        font-size: x-large;
+      }
+
+      .clButton {
+        padding: 4%;
+        color: #3c78c6;
+        font-size: x-large;
+        font-weight: bold;
+      }
+
+      .calendar {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #fff;
+        text-align: center;
+        margin: auto;
+        padding: 0;
+        align-self: center;
+        margin-bottom: 2%;
+      }
+      .calendar * {
+        height: 0;
+      }
+
+      .days {
+        color: #3c78c6;
+      }
+
+      #tasklist {
+        background-color: #8598fa;
+        border-radius: 16px;
+        width: 85%;
+        margin: auto;
+        padding: 1em;
+        max-height: 70%;
+        overflow: scroll;
+        position: absolute;
+        bottom: 11.67%;
+        left: 3.67%;
+      }
+
+      .task {
+        text-align: left;
+        border-radius: 1em;
+        background-color: #c2ccfe;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1em;
+        #name {
+          font-weight: bold;
+        }
+      }
+
+      .task > .checkbox {
+        cursor: pointer;
+        background-color: #8598fa;
+        color: white;
+        border-radius: 0.2em;
+        width: 1em;
+        height: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2%;
+        font-size: 300%;
+      }
+
+      .task > #info {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        * {
+          margin: 0;
+        }
+      }
+      footer {
+        position: absolute;
+        bottom: 2%;
+        left: 1%;
+        width: 100%;
+      }
+      footer > button {
+        font-weight: bold;
+        background-color: #cd627c;
+        color: white;
+        border: none;
+        border-radius: 4em;
+        padding: 1.5em;
+        margin: 0.5em;
+        cursor: pointer;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>06 | July 2025</h1>
+      <h1>06 | July 2025</h1>
     </header>
-    <div>
-        <button><</button> My Calendar <button>></button>
+    <div class="clButton">
+      <button><</button> 📅My Calendar <button>></button>
     </div>
-    <table id="calendar">
-        <tbody>
-            <tr>
-                <td></td>
-                <th scope="col" class="sunday">Sun</th>
-                <th scope="col" class="monday">Mon</th>
-                <th scope="col" class="tuesday">Tue</th>
-                <th scope="col" class="wednesday">Wed</th>
-                <th scope="col" class="thursday">Thu</th>
-                <th scope="col" class="friday">Fri</th>
-                <th scope="col" class="saturday">Sat</th>
-            </tr>
-        </tbody>
+    <table class="calendar">
+      <tbody>
+        <tr class="days">
+          <th scope="col" class="sunday">Sun</th>
+          <th scope="col" class="monday">Mon</th>
+          <th scope="col" class="tuesday">Tue</th>
+          <th scope="col" class="wednesday">Wed</th>
+          <th scope="col" class="thursday">Thu</th>
+          <th scope="col" class="friday">Fri</th>
+          <th scope="col" class="saturday">Sat</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td style="color: red">11</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td style="color: red">14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+        </tr>
+        <tr>
+          <td style="color: #fdcb58">20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+          <td>25</td>
+          <td>26</td>
+        </tr>
+        <tr>
+          <td>27</td>
+          <td>28</td>
+          <td>29</td>
+          <td>30</td>
+          <td>31</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
     </table>
-</body>
+    <div id="tasklist">
+      <table id="overview">
+        <tr>
+          <td>Due for Monday, 14th July</td>
+        </tr>
+      </table>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <button onclick="window.location = '/mobile-dashboard.html'">
+        Dashboard
+      </button>
+      <button style="width: 60%">Add task</button>
+    </footer>
+  </body>
+  <script src="checkbox.js"></script>
 </html>

@@ -124,12 +124,12 @@
       <img
         src="ref/menu.png"
         id="menu"
-        onclick="window.location = '/mobilessettings.html'"
+        onclick="window.location = '/mobile-settings.html'"
       />
       <img
         src="ref/user.png"
         id="user"
-        onclick="window.location = '/mobilessettings.html'"
+        onclick="window.location = '/mobile-settings.html'"
       />
     </header>
     <div id="tasklistkey">
@@ -245,23 +245,9 @@
       </div>
     </div>
     <footer>
-      <button onclick="window.location = '/mobile-calendar.html'">
-        Calendar</button
-      ><button style="width: 60%">Add task</button>
+      <button onclick="window.location = '/mobile-calendar.html'">Calendar</button>
+      <button style="width: 60%">Add task</button>
     </footer>
   </body>
-  <script>
-    checkboxes = document.getElementsByClassName("checkbox");
-    for (i = 0; i < checkboxes.length; i++) {
-      checkboxes[i].addEventListener("click", function () {
-        if (this.clicked != "yes") {
-          this.clicked = "yes";
-          this.children[0].innerText = "✓"; 
-        } else {
-          this.clicked = "no";
-          this.children[0].innerText = "";
-        }
-      });
-    }
-  </script>
+  <script src="checkbox.js"></script>
 </html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link rel="stylesheet" href="..." />
+    <style>
+      body {
+        background-color: #343d5e;
+        color: #fff;
+        font-family: sans-serif;
+      }
+      header {
+        font-size: 150%;
+        text-align: center;
+        * { margin: 0.5em; }
+      }
+      header > img {
+        position: absolute;
+        top: 3%; 
+        left: 5%;
+        width: 1.25em;
+        cursor: pointer;
+        filter: invert();
+      }
+      .content {
+        color: black;
+        background-color: #fff;
+        border-radius: 2em;
+        padding: 0.8em;
+        max-height: 90%;
+        overflow: scroll;
+        justify-content: center;
+      }
+      .contentObject {
+        background-color: #e2a9f1;
+        border-radius: 2em;
+        padding: 0.5em;
+        margin-bottom: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+        #contentName {
+          font-weight: bold;
+          font-size: 150%;
+          cursor: pointer;
+        }
+        #contentHide {
+          cursor: pointer;
+          font-size: 150%;
+          float: right;
+          font-weight: bold;
+        }
+        & > #contentContent {
+          margin-top: 1em;
+        }
+        .contentSetting > * {
+          margin: 0;
+        }
+        input[type="checkbox"] {
+          content: url("/ref/toggle-off.png");
+          appearance: none;
+          display: block;
+          height: 2\em;
+          cursor: pointer;
+        }
+        input[type="checkbox"]:checked {
+          content: url("/ref/toggle-on.png");
+        }
+      }
+      input[type="button"] {
+        border: none;
+        background-color: #c2ccfe;
+        width: 30%;
+        height: 2em;
+        cursor: pointer;
+        border-radius: 1em;
+      }
+      #id {
+        background-color: #8598fa;
+        border-radius: 2em;
+        padding: 1em;
+        margin-bottom: 1em;
+        img {
+          height: 8em;
+        }
+        #info {
+          float: right;
+        }
+        input[type="button"] {
+          margin-left: 35%;
+        }
+      }
+      .buttonSection {
+        position: absolute;
+        bottom: 1%;
+        width: 100%;
+      }
+      .buttonSection > button {
+        background-color: #cd627c;
+        color: #fff;
+        font-size: 150%;
+        border: 0;
+        border-radius: 3em;
+        padding: 1em;
+        margin: 0.5em;
+        width: 50%;
+      }
+      .sidealign {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 2.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <h1><strong>Settings</strong></h1>
+        <img
+        src="ref/menu.png"
+        id="menu"
+        onclick="window.location = '/mobile-dashboard.html'"
+      />
+    </header>
+    <div class="content">
+      <div id="id">
+        <img src="/ref/user.png" alt="profile picture" />
+        <div id="info">
+          <p class="idDetails">Preferred Name: test</p>
+          <p class="idDetails">Username: test</p>
+          <p class="idDetails">Email: test</p>
+        </div>
+        <input type="button" value="Save" />
+      </div>
+      <div class="contentObject">
+        <span id="contentName">Appearance</span>
+        <span id="contentHide">v</span>
+        <div id="contentContent">
+          <div class="contentSetting sidealign">
+            <p>Theme</p>
+            <input type="button" value="Light" />
+            <input type="button" value="Dark" />
+          </div>
+          <div class="contentSetting sidealign">
+            <p>Notifications</p>
+            <input type="checkbox" />
+          </div>
+        </div>
+      </div>
+      <div class="contentObject">
+        <span id="contentName">Misc.</span>
+        <span id="contentHide">v</span>
+        <div id="contentContent">
+          <div class="contentSetting sidealign">
+            <p>Send reminder notifications</p>
+            <input type="checkbox" />
+          </div>
+          <div class="contentSetting sidealign">
+            <p>Send reminder emails</p>
+            <input type="checkbox" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buttonSection">
+      <button>Go Back</button>
+      <button style="width: 30%">Save</button>
+    </div>
+  </body>
+  <script>
+    for (dropdown of document.getElementsByClassName("contentObject")) {
+      dropdown.showing = true;
+      for (let hide of dropdown.children) {
+        if (hide.id == "contentHide" || hide.id == "contentName") {
+          hide.addEventListener("click", function () {
+            for (let sibling of this.parentElement.children) {
+              if (sibling.id == "contentContent") {
+                content = sibling;
+              }
+              if (sibling.id == "contentHide") {
+                hide = sibling;
+              }
+            }
+            if (this.parentElement.showing) {
+              this.parentElement.showing = false;
+              hide.innerText = "<";
+              content.style.visibility = "hidden";
+              content.style.display = "none";
+            } else {
+              this.parentElement.showing = true;
+              hide.innerText = "v";
+              content.style.visibility = "visible";
+              content.style.display = "block";
+            }
+          });
+        }
+      }
+    }
+  </script>
+  <script src="checkbox.js"></script>
+</html>
