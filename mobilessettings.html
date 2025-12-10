@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings</title>
-    <link rel="stylesheet" href="..."/>
-  </head>
-  <body>
+    <link rel="stylesheet" href="..." />
     <style>
       body {
         background-color: #343d5e;
         color: #fff;
         font-family: sans-serif;
       }
-      .header {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        align-content: stretch;
+      header {
+        font-size: 150%;
+        text-align: center;
+        * { margin: 0.5em; }
+      }
+      header > img {
+        position: absolute;
+        top: 3%; 
+        left: 5%;
+        width: 1.25em;
+        cursor: pointer;
+        filter: invert();
       }
       .content {
         color: black;
         background-color: #fff;
         border-radius: 2em;
-        padding: .8em;
-        height: 90%;
+        padding: 0.8em;
+        max-height: 90%;
+        overflow: scroll;
         justify-content: center;
       }
       .contentObject {
@@ -35,22 +39,57 @@
         padding: 0.5em;
         margin-bottom: 1em;
         padding-left: 1em;
+        padding-right: 1em;
+        #contentName {
+          font-weight: bold;
+          font-size: 150%;
+          cursor: pointer;
+        }
         #contentHide {
+          cursor: pointer;
+          font-size: 150%;
           float: right;
-          margin-right: 8%;
           font-weight: bold;
         }
-        .contentSetting {
-          #setting { float: right; }
+        & > #contentContent {
+          margin-top: 1em;
         }
+        .contentSetting > * {
+          margin: 0;
+        }
+        input[type="checkbox"] {
+          content: url("/ref/toggle-off.png");
+          appearance: none;
+          display: block;
+          height: 3em;
+          cursor: pointer;
+        }
+        input[type="checkbox"]:checked {
+          content: url("/ref/toggle-on.png");
+        }
+      }
+      input[type="button"] {
+        border: none;
+        background-color: #c2ccfe;
+        width: 30%;
+        height: 2em;
+        cursor: pointer;
+        border-radius: 1em;
       }
       #id {
         background-color: #8598fa;
-      }
-      #id > button {
-          height: 10px;
-          padding: 2%;
-          font-size: 100%;
+        border-radius: 2em;
+        padding: 1em;
+        margin-bottom: 1em;
+        img {
+          height: 8em;
+        }
+        #info {
+          float: right;
+        }
+        input[type="button"] {
+          margin-left: 35%;
+        }
       }
       .buttonSection {
         position: absolute;
@@ -67,56 +106,97 @@
         margin: 0.5em;
         width: 50%;
       }
+      .sidealign {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 2.5em;
+      }
     </style>
-    <div class="header">
-      <div class="headerObject">
+  </head>
+  <body>
+    <header>
         <h1><strong>Settings</strong></h1>
-      </div>
-    </div>
+        <img
+        src="ref/menu.png"
+        id="menu"
+        onclick="window.location = '/mobile-dashboard.html'"
+      />
+    </header>
     <div class="content">
-      <div class="contentObject" id="id">
-        <img src=".." alt="profile picture" />
-        <p class="idDetails">Preferred Name:</p>
-        <p class="idDetails">Username:</p>
-        <p class="idDetails">Email:</p>
-        <button>Save</button>
+      <div id="id">
+        <img src="/ref/user.png" alt="profile picture" />
+        <div id="info">
+          <p class="idDetails">Preferred Name: test</p>
+          <p class="idDetails">Username: test</p>
+          <p class="idDetails">Email: test</p>
+        </div>
+        <input type="button" value="Save" />
       </div>
       <div class="contentObject">
-        <span id="contentName">humburg</span>
+        <span id="contentName">Appearance</span>
         <span id="contentHide">v</span>
         <div id="contentContent">
-          <div class="contentSetting">
-            <p>a</p>
-            <p id="setting">b</p>
+          <div class="contentSetting sidealign">
+            <p>Theme</p>
+            <input type="button" value="Light" />
+            <input type="button" value="Dark" />
+          </div>
+          <div class="contentSetting sidealign">
+            <p>Notifications</p>
+            <input type="checkbox" />
           </div>
         </div>
+      </div>
+      <div class="contentObject">
+        <span id="contentName">Misc.</span>
+        <span id="contentHide">v</span>
+        <div id="contentContent">
+          <div class="contentSetting sidealign">
+            <p>Send reminder notifications</p>
+            <input type="checkbox" />
+          </div>
+          <div class="contentSetting sidealign">
+            <p>Send reminder emails</p>
+            <input type="checkbox" />
+          </div>
+        </div>
+      </div>
     </div>
     <div class="buttonSection">
       <button>Go Back</button>
       <button style="width: 30%">Save</button>
     </div>
-    <!-- <script src="..."></script> -->
   </body>
   <script>
     for (dropdown of document.getElementsByClassName("contentObject")) {
       dropdown.showing = true;
-      dropdown.addEventListener("click", function () {
-        for (let child of this.children) {
-          if (child.id == "contentContent") { content = child }
-          else if (child.id == "contentHide" ) { hide = child }
+      for (let hide of dropdown.children) {
+        if (hide.id == "contentHide" || hide.id == "contentName") {
+          hide.addEventListener("click", function () {
+            for (let sibling of this.parentElement.children) {
+              if (sibling.id == "contentContent") {
+                content = sibling;
+              }
+              if (sibling.id == "contentHide") {
+                hide = sibling;
+              }
+            }
+            if (this.parentElement.showing) {
+              this.parentElement.showing = false;
+              hide.innerText = "<";
+              content.style.visibility = "hidden";
+              content.style.display = "none";
+            } else {
+              this.parentElement.showing = true;
+              hide.innerText = "v";
+              content.style.visibility = "visible";
+              content.style.display = "block";
+            }
+          });
         }
-        if (this.showing) {
-          this.showing = false;
-          hide.innerText = "<";
-          content.style.visibility = "hidden";
-          content.style.display = "none";
-        } else {
-          this.showing = true;
-          hide.innerText = "v";
-          content.style.visibility = "visible";
-          content.style.display = "block";
-        }
-      })
+      }
     }
   </script>
+  <script src="checkbox.js"></script>
 </html>
