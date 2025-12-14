@@ -11,6 +11,7 @@
         margin: 0;
         padding: 0;
         height: 100%;
+        font-family: sans-serif;
       }
 
       header {
@@ -20,14 +21,69 @@
         padding: 2%;
         text-align: center;
         margin: auto;
-        font-size: x-large;
       }
 
-      .clButton {
-        padding: 4%;
-        color: #3c78c6;
-        font-size: x-large;
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+      }
+
+      .day {
+        font-size: 72px;
+        font-weight: 900;
+        color: #000;
+        line-height: 1;
+      }
+
+      .divider {
+        width: 3px;
+        height: 80px;
+        background: #000;
+      }
+
+      .month-year {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .month {
+        font-size: 32px;
+        font-weight: 700;
+        color: #000;
+        line-height: 1;
+      }
+
+      .year {
+        font-size: 32px;
+        font-weight: 700;
+        color: #000;
+        line-height: 1;
+      }
+      .calendar-header {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        font-size: 32px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 2%;
+      }
+
+      .prevnext > button  {
+        border: 1px;
+        padding:10px;
+        background-color: #e2a9f1;
+        color: #b8688f;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
         font-weight: bold;
+        font-size: 16px;
       }
 
       .calendar {
@@ -35,9 +91,11 @@
         background-color: #fff;
         text-align: center;
         margin: auto;
-        padding: 0;
+        padding: 0%;
         align-self: center;
         margin-bottom: 2%;
+        table-layout: auto;
+        font-size: 28px;
       }
       .calendar * {
         height: 0;
@@ -114,10 +172,19 @@
   </head>
   <body>
     <header>
-      <h1>06 | July 2025</h1>
+      <div class="content">
+        <div class="day">06</div>
+        <div class="divider"></div>
+        <div class="month-year">
+          <div class="month">July</div>
+          <div class="year">2025</div>
+        </div>
+      </div>
     </header>
-    <div class="clButton">
-      <button><</button> 📅My Calendar <button>></button>
+    <div class="calendar-header">
+      <div class="prevnext"><button><</button></div>
+      <div>📅My Calendar</div>
+      <div class="prevnext"><button>></button></div>
     </div>
     <table class="calendar">
       <tbody>
