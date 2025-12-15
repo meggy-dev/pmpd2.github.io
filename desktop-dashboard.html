@@ -126,7 +126,7 @@
     </div>
     <div id="tasks">
       <h1>My Checklist:</h1>
-      <table>
+      <table id="tasklist">
         <tr>
           <td></td>
           <td>Due date</td>
@@ -140,97 +140,24 @@
           <td>Friday</td>
           <td>High</td>
         </tr>
-        <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr>
-        <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr>
-        <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr>
-       <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr>
-        <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr>
-        <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr>
-        <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr>
-        <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr>
-        <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr>
-        <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr>
-        <tr class="task">
-          <td>
-            <div class="checkbox"><p>✓</p></div>
-            <span>Assignment 1</span>
-          </td>
-          <td>Friday</td>
-          <td>High</td>
-        </tr> 
       </table>
     </div>
     <button id="bottombutton">View All Tasks</button>
   </body>
   <script src="checkbox.js"></script>
+  <script>
+    const amount = 20
+
+    function randint(max) { return Math.floor(Math.random() * max) }
+    const tasklist = document.getElementById("tasklist")
+    const severities = ["Low", "Medium", "High"]
+    const dates = ["Tomorrow", "Friday", "23th March 2026", "Monday", "13th January 2026"]
+    const names = ["Assignment 1", "Project 1", "Summary Report", "UCAS application", "Maths homework"]
+    for (i = 0; i <= amount; i++) {
+        task = document.createElement("tr")
+        task.innerHTML = `<td><div class="checkbox"><p>✓</p></div><span>${names[randint(names.length - 1)]}</span></td><td>${dates[randint(names.length - 1)]}</td><td>${severities[randint(severities.length - 1)]}</td>`
+        task.class = "task"
+        tasklist.appendChild(task)
+    }
+  </script>
 </html>
