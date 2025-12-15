@@ -156,7 +156,7 @@
     const names = ["Assignment 1", "Project 1", "Summary Report", "UCAS application", "Maths homework"]
     for (i = 0; i <= amount; i++) {
         task = document.createElement("tr")
-        task.innerHTML = `<td><div class="checkbox"><p></p></div><span>${names[randint(names.length - 1)]}</span></td><td>${dates[randint(names.length - 1)]}</td><td>${severities[randint(severities.length - 1)]}</td>`
+        task.innerHTML = `<td><div class="checkbox"><p></p></div><span>${names[randint(names.length)]}</span></td><td>${dates[randint(names.length)]}</td><td>${severities[randint(severities.length)]}</td>`
         task.class = "task"
         tasklist.appendChild(task)
     }
