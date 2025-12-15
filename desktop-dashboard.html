@@ -27,6 +27,7 @@
         font-weight: bold;
       }
       .checkbox {
+        cursor: pointer;
         float: left;
         width: 1.5em; height: 1.5em;
         background-color: #706678;
@@ -134,7 +135,7 @@
         </tr>
         <tr class="task">
           <td>
-            <div class="checkbox"><p>✓</p></div>
+            <div class="checkbox"><p></p></div>
             <span>Assignment 1</span>
           </td>
           <td>Friday</td>
@@ -155,7 +156,7 @@
     const names = ["Assignment 1", "Project 1", "Summary Report", "UCAS application", "Maths homework"]
     for (i = 0; i <= amount; i++) {
         task = document.createElement("tr")
-        task.innerHTML = `<td><div class="checkbox"><p>✓</p></div><span>${names[randint(names.length - 1)]}</span></td><td>${dates[randint(names.length - 1)]}</td><td>${severities[randint(severities.length - 1)]}</td>`
+        task.innerHTML = `<td><div class="checkbox"><p></p></div><span>${names[randint(names.length - 1)]}</span></td><td>${dates[randint(names.length - 1)]}</td><td>${severities[randint(severities.length - 1)]}</td>`
         task.class = "task"
         tasklist.appendChild(task)
     }
