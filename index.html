@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <p>test</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Helper</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      head,
+      body {
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        text-align: center;
+        background-color: #e2a9f1;
+        *  {font-size: 300%;}
+      }
+      button {
+        width: 10em;
+        margin: 1em;
+        padding: 0.5em;
+        background-color: #8598fa;
+        border: none;
+        border-radius: 1em;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Choose a version:</h1>
+    <button onclick="window.location = '/mobile.html'">Mobile (set viewport to 400x900)</button>
+    <!-- change to desktop login when that is created -->
+    <button onclick="window.location = '/desktop-dashboard.html'">Desktop (unfinished)</button>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

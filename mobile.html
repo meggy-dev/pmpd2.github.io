@@ -1,23 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="stylemobile.css">
-</head>
-<body>
+    <link rel="stylesheet" href="stylemobile.css" />
+    <style>
+      head,
+      body {
+        text-align: center;
+        background-color: #343d5e;
+        color: white;
+        font-size: 150%;
+        height: 100%;
+        width: 100%;
+      }
+      #logo {
+        font-size: 100%;
+        width: 80%;
+        background-color: white;
+        color: black;
+        padding: 0.5em;
+        border-radius: 8px;
+        left: 6%; 
+        position: absolute;
+        bottom: 1%;
+      }
+      img {
+        position: absolute;
+        top: 26%;
+        left: 2%;
+        width: 100%;
+      }
+      form {
+        margin-top: 15%;
+        font-weight: bold;
+        [type="submit"] {
+          font-size: 2em;
+          padding: 5%;
+          width: 50%;
+          border-style: none;
+          border-radius: 0.5em;
+          color: white;
+          background-color: #077aba;
+          position: absolute;
+          bottom: 20%;
+          left: 25%;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        [type="text"] {
+          margin-bottom: 10%;
+          width: 80%;
+          padding: 2%;
+          border-radius: 0.5em;
+          background-color: #bbd1eb;
+          border-style: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <!-- combine both pages code into the index once its done-->
     <!-- view port during development - 400, 900 -->
-    <form action="">
-        <label for="uname">Username</label> <br>
-        <input type="text" id="uname" name="uname"> <br>
-        <label for="passw">Password</label> <br>
-        <input type="text" id="passw" name="passw"> <br>
-        <img src="..." alt="Student Helper"> <br>
-        <input type="submit" value="Login">
+    <form action="/mobile-dashboard.html">
+      <label for="uname">Username</label> <br />
+      <input type="text" id="uname" name="uname" /> <br />
+      <label for="passw">Password</label> <br />
+      <input type="text" id="passw" name="passw" /> <br />
+      <img src="/ref/mobile logo.png" alt="Student Helper" /> <br />
+      <input type="submit" value="Login" id="login" />
     </form>
-    
-    <img src="..." alt="Burton and South Derbyshire College">
-</body>
+
+    <!-- placeholder -->
+    <p id="logo">Burton and South Derbyshire College</p>
+  </body>
 </html>

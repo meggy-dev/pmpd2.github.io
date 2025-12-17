@@ -1,0 +1,10 @@
+/* 
+this will contain any style overrides we will need for every mobile page.
+do not touch it unless you know what you're doing; use <style> in your document instead
+- amy
+*/
+
+html, body {
+    width: 100%; height: 100%;
+    font-family: sans-serif;
+}

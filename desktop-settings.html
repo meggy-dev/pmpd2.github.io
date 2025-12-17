@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings</title>
+<style>
+  /* Reset default styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background-color: #c2ccfe;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+  }
+
+  .settings-container {
+    width: 1100px;
+    background-color: #f4f4ff;
+    border-radius: 15px;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    height: 1000;
+    margin: 200px;
+  }
+
+  /* Left panel */
+  .settings-left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .profile-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #d9b3ff;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .profile-section img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .profile-section button {
+    margin-left: 10px;
+    padding: 5px 15px;
+    border: none;
+    background-color: #a17eff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #d9b3ff;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .input-group label {
+    font-weight: bold;
+  }
+
+  .input-group input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  /* Dropdowns */
+  .dropdown-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    background-color: #d9b3ff;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .dropdown-group select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  /* Right panel */
+  .settings-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .settings-right button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .save-btn {
+    background-color: #b3d9ff;
+    color: black;
+  }
+
+  .cancel-btn {
+    background-color: #c6c6c6;
+    color: black;
+  }
+  .topnav {
+  background-color: #fff;
+  overflow: hidden;
+   position: fixed;
+   top: 0;
+   width: 100%;
+ display: flex;
+ gap: 800px;
+ height: 120px;
+ align-items: center;
+
+ 
+  
+  }
+  
+.logo{
+  height: 60px;
+  width: 70px;
+}
+.userprofile{
+  height: 60px;
+  width: 70px;
+}
+.menu{
+  height: 60px;
+  width: 70px;
+  margin-right: 70px;
+}
+.navbar-right{
+  gap: 100px;
+}
+.wrapper{
+  display: flex;
+  padding-top: 50px;
+  justify-content: center;
+
+}
+.Collapsible{
+  width: 700px;
+  overflow: hidden;
+  font-weight: 500;
+  
+}
+.Collapsible input{
+  display: none;
+}
+.Collapsible label{
+  position: relative;
+  font-weight: 600;
+  background: #fff;
+  color: #111;
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 15px;
+border-radius: 4px;
+box-shadow: 0 5px 11px 0 rgba(0,0,0,0.1), 0 4px 11px 0 rgba(0,0,0,.08);
+z-index: 1;
+}
+.Collapsible label:after{
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 18px;
+  height: 18px;
+  background:url(/pmpd2.github.io/ref/right-arrow.png) no-repeat 0 0 ;
+  transition: all 0.3s ease;
+
+}
+.Collapsible input:checked + label:after{
+  transform: rotate(90deg);
+}
+.Collapsible-text{
+  max-height: 1px;
+  overflow: hidden;
+  border-radius: 4px;
+  line-height: 1.4;
+  position: relative;
+  top: -100%;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+
+}
+.Collapsible input:checked ~ .Collapsible-text{
+  max-height: 300px;
+  padding-bottom: 25px;
+  background: #fff;
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,0.1), 0 4px 11px 0 rgba(0,0,0,.08);
+ opacity: 1;
+ top: 0;
+}
+.Collapsible-text h2 {
+  margin-bottom: 10px;
+  padding: 15px 15px 0;
+  color: #1c1c6b;
+
+}
+.Collapsible-text p {
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+.Collapsible1{
+  width: 700px;
+  overflow: hidden;
+  font-weight: 500;
+   
+}
+.Collapsible1 input{
+  display: none;
+}
+.Collapsible1 label{
+  position: relative;
+  font-weight: 600;
+  background: #fff;
+  color: #111;
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 15px;
+border-radius: 4px;
+box-shadow: 0 5px 11px 0 rgba(0,0,0,0.1), 0 4px 11px 0 rgba(0,0,0,.08);
+z-index: 1;
+}
+.Collapsible1 label:after{
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 18px;
+  height: 18px;
+  background:url(/pmpd2.github.io/ref/right-arrow.png) no-repeat 0 0 ;
+  transition: all 0.3s ease;
+
+}
+.Collapsible1 input:checked + label:after{
+  transform: rotate(90deg);
+}
+.Collapsible1-text{
+  max-height: 1px;
+  overflow: hidden;
+  border-radius: 4px;
+  line-height: 1.4;
+  position: relative;
+  top: -100%;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+
+}
+.Collapsible1 input:checked ~ .Collapsible1-text{
+  max-height: 300px;
+  padding-bottom: 25px;
+  background: #fff;
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,0.1), 0 4px 11px 0 rgba(0,0,0,.08);
+ opacity: 1;
+ top: 0;
+}
+.Collapsible1-text h2 {
+  margin-bottom: 10px;
+  padding: 15px 15px 0;
+  color: #1c1c6b;
+
+}
+.Collapsible1-text p {
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+</style>
+
+
+
+</head>
+<body>
+ 
+<div class="topnav">
+    <div class="navbar-left">
+    <img src="/ref/logo.png" class="logo">
+
+    </div>
+
+     <div class="navbar-center">
+       <h1>Settings</h1>
+    </div>
+    <div class="navbar-right">
+    <img src="/ref/menu.png" class="menu">
+    
+    
+
+    </div>
+   
+    
+</div>
+
+<div class="settings-container">
+  <!-- Left side -->
+  <div class="settings-left">
+    <!-- Profile -->
+    <div class="profile-section">
+      <img src="/ref/user.png" alt="Profile Picture">
+      <button>Upload</button>
+    </div>
+
+    <!-- User info -->
+    <div class="input-group">
+      <label for="firstName">Full Name:</label>
+      <input type="text" id="firstName" placeholder="Enter full name">
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" placeholder="Enter last name">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Enter email">
+    </div>
+
+    <!-- Dropdowns -->
+    <div class="dropdown-group">
+      <div class="wrapper">
+<div class="Collapsible">
+  <input type="checkbox" id="Collapsible-head">
+  <label for="Collapsible-head">Language</label>
+  <div class="Collapsible-text">
+    <h2>translate</h2>
+    
+     <div id="google_translate_element"></div>
+  </div>
+</div>
+
+</div>
+
+
+ <div class="wrapper">
+<div class="Collapsible1">
+  <input type="checkbox" id="Collapsible1-head">
+  <label for="Collapsible1-head">Time Zone</label>
+  <div class="Collapsible1-text">
+    <h2>Time Zone</h2>
+    
+   
+  </div>
+</div>
+
+</div>
+
+     
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Right side -->
+  <div class="settings-right">
+    <button class="save-btn">Save</button>
+    <button class="cancel-btn">Cancel</button>
+  </div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

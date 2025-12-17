@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mobile - dashboard</title>
+    <link rel="stylesheet" href="stylemobile.css" />
+    <style>
+      html,
+      body {
+        background-color: #e2a9f1;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      header > img {
+        position: absolute;
+        top: 3%; 
+        width: 2em;
+        height: 2em;
+        cursor: pointer;
+      }
+      #menu {
+        left: 8%;
+      }
+      #user {
+        right: 8%;
+      }
+
+      .circle {
+        font-weight: bold;
+      }
+      #tasklistkey {
+        display: flex;
+        justify-content: center;
+        .circle {
+          margin-left: 10px;
+        }
+        #name {
+          margin-right: 30%;
+          font-weight: bold;
+        }
+      }
+
+      #tasklist {
+        background-color: white;
+        border-radius: 16px;
+        width: 85%;
+        margin: auto;
+        padding: 1em;
+        max-height: 70%;
+        overflow: scroll;
+      }
+      #tasklist > #overview {
+        width: 100%;
+        border-color: #8598fa;
+        border-style: solid;
+        border-width: 0.5em;
+        background-color: #c2ccfe;
+        border-radius: 1em;
+        border-spacing: 0;
+      }
+      #tasklist > #overview td {
+        width: 33%;
+        border-left: solid 0.3em #8598fa;
+        border-right: solid 0.3em #8598fa;
+      }
+      .task {
+        text-align: left;
+        border-radius: 1em;
+        background-color: #c2ccfe;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1em; 
+        #name {
+          font-weight: bold;
+        }
+      }
+      .task > .checkbox {
+        cursor: pointer;
+        background-color: #8598fa;
+        color: white;
+        border-radius: 0.2em;
+        width: 1em;
+        height: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2%;
+        font-size: 300%;
+      }
+      .task > #info {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        * {
+          margin: 0;
+        }
+      }
+
+      footer {
+        position: absolute;
+        bottom: 2%;
+        left: 1%;
+        width: 100%;
+      }
+      footer > button {
+        font-weight: bold;
+        background-color: #cd627c;
+        color: white;
+        border: none;
+        border-radius: 4em;
+        padding: 1.5em;
+        margin: 0.5em;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Dashboard</h1>
+      <img
+        src="ref/menu.png"
+        id="menu"
+        onclick="window.location = '/mobile-settings.html'"
+      />
+      <img
+        src="ref/user.png"
+        id="user"
+        onclick="window.location = '/mobile-settings.html'"
+      />
+    </header>
+    <div id="tasklistkey">
+      <p id="name">Task list</p>
+      <p>Difficulty</p>
+      <p style="color: #78b159" class="circle">●</p>
+      <p style="color: #fdcb58" class="circle">●</p>
+      <p style="color: #dd2e44" class="circle">●</p>
+    </div>
+    <div id="tasklist">
+      <table id="overview">
+        <tr>
+          <td>Tasks due</td>
+          <td>Overdue</td>
+          <td>Week</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+      </table>
+      <br/> 
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+      <div class="task">
+        <div class="checkbox"><p></p></div>
+        <div id="info">
+          <p id="name">Task 1 - English Homework</p>
+          <p id="misc">
+            📅 Tues 20 /
+            <span style="color: #dd2e44" class="circle">●</span> High
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <button onclick="window.location = '/mobile-calendar.html'">Calendar</button>
+      <button style="width: 60%">Add task</button>
+    </footer>
+  </body>
+  <script src="checkbox.js"></script>
+</html>
