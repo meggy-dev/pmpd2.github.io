@@ -5,10 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Helper</title>
     <style>
+      head,
+      body {
+        font-family: sans-serif;
+        background-color: #c2ccef;
+      }
+      header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(-1deg, #c2ccef 25%, white 25%);
+        width: 100vw;
+        padding: 1em;
+      }
       .sidealign {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+      }
+      #main {
+        margin-top: 30vh;
+        font-size: 150%;
+      }
+      div {
+        justify-content: center;
+        text-align: center;
+      }
+      button {
+        border-radius: 1em;
+        font-size: 125%;
+        padding: 0.5em;
+        border-style: none;
       }
     </style>
   </head>
@@ -16,19 +43,19 @@
     <header>
       <h1>Student Helper</h1>
     </header>
-    <div class="sidealign">
+    <div class="sidealign" id="main">
       <div>
         <p>Stay on top of tasks with Student Helper</p>
         <p>It's free up to 10 users - no credit card needed.</p>
         <button>Sign up</button>
-        <p>-- or continue with --</p>
+        <p>————— or continue with —————</p>
         <div class="sidealign">
-            <button>Google</button>
-            <button>Microsoft</button>
+          <button>Google</button>
+          <button>Microsoft</button>
         </div>
       </div>
       <div>
-        <img src="/ref/sample.png">
+        <img src="/ref/sample.png" />
       </div>
     </div>
   </body>
