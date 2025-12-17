@@ -18,6 +18,11 @@
         background: linear-gradient(-1deg, #c2ccef 25%, white 25%);
         width: 100vw;
         padding: 1em;
+        img {
+          float: left;
+          width: 8%;
+          padding-right: 3em;
+        }
       }
       .sidealign {
         display: flex;
@@ -27,14 +32,15 @@
       #main {
         margin-top: 30vh;
         font-size: 150%;
-        margin-left: 15vw; margin-right: 15vw;
-        img {
-          display: flex;
-          justify-content: center;
-          width: 30vw;
-          border-radius: 1em;
-          box-shadow: 0 0 20px #1c4ccc;
-        }
+        margin-left: 15vw;
+        margin-right: 15vw;
+      }
+      #overview > img {
+        display: flex;
+        justify-content: center;
+        width: 30vw;
+        border-radius: 1em;
+        box-shadow: 0 0 20px #1c4ccc;
       }
       div {
         text-align: center;
@@ -44,11 +50,17 @@
         font-size: 125%;
         padding: 0.5em;
         border-style: none;
+        img {
+          box-shadow: 0;
+          width: 1em;
+          padding-right: 0.2em;
+        }
       }
     </style>
   </head>
   <body>
     <header>
+      <img src="/ref/logo.png" />
       <h1>Student Helper</h1>
     </header>
     <div class="sidealign" id="main">
@@ -58,11 +70,11 @@
         <button>Sign up</button>
         <p>————— or continue with —————</p>
         <div class="sidealign">
-          <button>Google</button>
-          <button>Microsoft</button>
+          <button><img src="/ref/logo-google.png" />Google</button>
+          <button><img src="/ref/logo-microsoft.png" />Microsoft</button>
         </div>
       </div>
-      <div>
+      <div id="overview">
         <img src="/ref/overview.png" />
       </div>
     </div>
